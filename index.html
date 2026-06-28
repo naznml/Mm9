@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ильяс А. · Стратегиялық менеджмент</title>
+
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --text: #182230;
+      --muted: #667085;
+      --line: #e4e7ec;
+      --primary: #1d4ed8;
+      --primary-soft: #dbeafe;
+      --accent: #047857;
+      --accent-soft: #d1fae5;
+      --danger: #b42318;
+      --danger-soft: #fee4e2;
+      --warning: #92400e;
+      --warning-soft: #fef3c7;
+      --shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), #2563eb);
+      color: #fff;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #172554 0%, #1d4ed8 54%, #047857 100%);
+      color: #fff;
+      border-radius: 30px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 56px);
+      line-height: 1.08;
+    }
+
+    .hero p {
+      margin: 18px 0 0;
+      max-width: 870px;
+      color: rgba(255,255,255,0.88);
+      font-size: 17px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-chip {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .nav-panel {
+      display: grid;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .nav-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 4px;
+    }
+
+    .nav-title h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .nav-title span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .chapter-card {
+      display: block;
+      min-height: 118px;
+      padding: 16px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(15,23,42,0.055);
+    }
+
+    .chapter-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .chapter-card strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .chapter-card small {
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.38;
+      display: block;
+    }
+
+    .section {
+      margin: 28px 0;
+      scroll-margin-top: 24px;
+    }
+
+    .content-block {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      color: var(--primary);
+      background: var(--primary-soft);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .content-block h3 {
+      margin: 0 0 12px;
+      font-size: clamp(23px, 3vw, 34px);
+      line-height: 1.18;
+    }
+
+    .content-block > p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      max-width: 960px;
+    }
+
+    .note {
+      padding: 15px 16px;
+      background: var(--accent-soft);
+      border-radius: 18px;
+      color: #065f46;
+      font-size: 14.5px;
+      margin: 16px 0 20px;
+    }
+
+    .theory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .theory-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .theory-card strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .theory-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .test-box {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 22px;
+      background: #f8fbff;
+      border: 1px solid var(--line);
+    }
+
+    .test-box h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .section-desc {
+      margin: 0 0 18px !important;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .question {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      margin: 14px 0;
+    }
+
+    .question-title {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+
+    .q-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .q-text {
+      font-weight: 780;
+      line-height: 1.45;
+    }
+
+    .options {
+      display: grid;
+      gap: 9px;
+    }
+
+    .option {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+
+    .option input {
+      margin-top: 3px;
+      accent-color: var(--primary);
+    }
+
+    .option.correct {
+      background: var(--accent-soft);
+      border-color: rgba(4,120,87,0.35);
+      color: #065f46;
+      font-weight: 700;
+    }
+
+    .option.wrong {
+      background: var(--danger-soft);
+      border-color: rgba(180,35,24,0.35);
+      color: #842a20;
+      font-weight: 700;
+    }
+
+    .explanation {
+      display: none;
+      margin-top: 13px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      background: var(--warning-soft);
+      color: #78350f;
+      font-size: 14px;
+    }
+
+    .question.checked .explanation {
+      display: block;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 850;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #2563eb);
+      color: #fff;
+    }
+
+    .result-panel {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    .result-panel.show {
+      display: block;
+    }
+
+    .floating-up {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 48px;
+      height: 48px;
+      border-radius: 17px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.16);
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    @media (max-width: 980px) {
+      .chapter-grid,
+      .theory-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 22px, var(--max));
+        padding-top: 14px;
+      }
+
+      .topbar {
+        border-radius: 22px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .chapter-grid,
+      .theory-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      .content-block {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .test-box {
+        padding: 15px;
+      }
+
+      .question {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a id="top"></a>
+
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark">С</div>
+        <div class="brand-text">
+          Ильяс А. · Стратегиялық менеджмент · LEM · 2020
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <a class="pill" href="#chapters">Блоктар</a>
+        <a class="pill" href="#chapter-1">Мәні</a>
+        <a class="pill" href="#chapter-2">Талдау</a>
+        <a class="pill" href="#chapter-5">Бақылау</a>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">Ильяс А. · Стратегический менеджмент · 2020 · 438 с.</div>
+
+        <h1>Стратегиялық менеджмент</h1>
+
+        <p>
+          Бұл сайт Ильяс А. “Стратегический менеджмент” оқу құралы бойынша
+          дайындалады. Материал кітаптағы маңызды фактілерді КТ-ның 15 тақырыбына
+          байланысты қысқа жүйелейді: стратегиялық жоспарлау, талдау, болжау,
+          стратегияны таңдау, іске асыру, бақылау және шешім тиімділігі.
+        </p>
+
+        <div class="hero-meta">
+          <span class="hero-chip">Қазақ тілінде</span>
+          <span class="hero-chip">5 жауап нұсқасы</span>
+          <span class="hero-chip">1 дұрыс жауап</span>
+          <span class="hero-chip">Маңызды фактілер</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="nav-panel" id="chapters">
+      <div class="nav-title">
+        <h2>Жалпы блоктар</h2>
+        <span>Кітаптағы маңызды материалдар 15 КТ тақырыбына сай алынды</span>
+      </div>
+
+      <div class="chapter-grid">
+        <a class="chapter-card" href="#chapter-1">
+          <span class="chapter-num">1</span>
+          <strong>Стратегиялық менеджменттің мәні</strong>
+          <small>Ұғым, мақсат, ұзақ мерзімді даму, басқару логикасы</small>
+        </a>
+
+        <a class="chapter-card" href="#chapter-2">
+          <span class="chapter-num">2</span>
+          <strong>Стратегиялық жоспарлау және талдау</strong>
+          <small>Жоспарлау, талдау, болжау, бағдарламалау</small>
+        </a>
+
+        <a class="chapter-card" href="#chapter-3">
+          <span class="chapter-num">3</span>
+          <strong>Сыртқы және ішкі орта</strong>
+          <small>Факторлар, ресурстар, бәсеке, SWOT логикасы</small>
+        </a>
+
+        <a class="chapter-card" href="#chapter-4">
+          <span class="chapter-num">4</span>
+          <strong>Стратегияны әзірлеу және таңдау</strong>
+          <small>Миссия, мақсат, деңгейлер, бәсекелік артықшылық</small>
+        </a>
+
+        <a class="chapter-card" href="#chapter-5">
+          <span class="chapter-num">5</span>
+          <strong>Іске асыру, бақылау және тиімділік</strong>
+          <small>Бизнес-жоспар, шешім, бақылау, нәтижені бағалау</small>
+        </a>
+
+        <a class="chapter-card" href="#chapter-6">
+          <span class="chapter-num">6</span>
+          <strong>Қорытынды тест</strong>
+          <small>Стратегиялық менеджмент бойынша қайталау</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="chapter-1">
+      <div class="content-block">
+        <div class="section-kicker">1-блок · Стратегиялық менеджменттің мәні</div>
+        <h3>Стратегиялық менеджменттің мәні және басқарудағы рөлі</h3>
+
+        <p>
+          Бұл блокта стратегиялық менеджменттің мәні, ұзақ мерзімді даму бағыты,
+          ұйым мақсаты, сыртқы ортаға бейімделу және басқару шешімдерінің стратегиялық
+          сипаты қысқа қарастырылады.
+        </p>
+
+        <div class="note">
+          Негізгі ой: стратегиялық менеджмент ұйымның ұзақ мерзімді бағытын анықтайды,
+          сыртқы және ішкі жағдайды ескереді, мақсатқа жету үшін стратегия әзірлейді
+          және оны іске асыруды басқарады.
+        </div>
+
+        <div class="theory-grid">
+          <div class="theory-card">
+            <strong>Стратегиялық менеджмент</strong>
+            <p>Ұйымның ұзақ мерзімді дамуын, мақсаттарын және өзгермелі ортадағы әрекетін басқару жүйесі.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Стратегия</strong>
+            <p>Ұйым мақсатына жету үшін таңдалған ұзақ мерзімді бағыт пен әрекет жолы.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Ұзақ мерзімді бағыт</strong>
+            <p>Стратегиялық менеджмент қысқа әрекетпен шектелмей, болашақ даму бағытын анықтайды.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Сыртқы орта</strong>
+            <p>Нарық, бәсеке, технология, экономика және басқа факторлар стратегияға әсер етеді.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Ішкі мүмкіндік</strong>
+            <p>Ұйым ресурсы, қабілеті, құрылымы және басқару жүйесі стратегияны іске асыруға әсер етеді.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Стратегиялық шешім</strong>
+            <p>Ұйымның болашағына, бәсекелік орнына және даму бағытына әсер ететін шешім.</p>
+          </div>
+        </div>
+
+        <div class="test-box" data-test="ilyas-chapter-1-test">
+          <h3>Тест тапсырмалары</h3>
+          <p class="section-desc">
+            Әр сұрақта 5 жауап нұсқасы бар. Бір ғана дұрыс жауапты таңдаңыз.
+          </p>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">1</div>
+              <div class="q-text">Стратегиялық менеджменттің негізгі мәні</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q1_1" value="A"> Күнделікті құжат қозғалысын бақылау</label>
+              <label class="option"><input type="radio" name="q1_1" value="B"> Ұйымның ұзақ мерзімді дамуын басқару</label>
+              <label class="option"><input type="radio" name="q1_1" value="C"> Қоймадағы материал қорын есептеу</label>
+              <label class="option"><input type="radio" name="q1_1" value="D"> Жалақы төлеу кестесін реттеу</label>
+              <label class="option"><input type="radio" name="q1_1" value="E"> Ағымдағы есеп формасын толтыру</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Стратегиялық менеджмент ұйымның ұзақ мерзімді дамуын
+              және болашақ бағытын басқарумен байланысты.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">2</div>
+              <div class="q-text">Стратегия ұғымына жақын анықтама</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q1_2" value="A"> Қызметкердің күндік жұмыс есебі</label>
+              <label class="option"><input type="radio" name="q1_2" value="B"> Қойма қорының қозғалыс тізімі</label>
+              <label class="option"><input type="radio" name="q1_2" value="C"> Ағымдағы шығынды жабу тәртібі</label>
+              <label class="option"><input type="radio" name="q1_2" value="D"> Мақсатқа жетудің ұзақ мерзімді бағыты</label>
+              <label class="option"><input type="radio" name="q1_2" value="E"> Құжаттарды тіркеудің ішкі ережесі</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Стратегия ұйым мақсатына жетудің ұзақ мерзімді бағытын
+              және әрекет жолын білдіреді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">3</div>
+              <div class="q-text">Стратегиялық шешімнің ерекшелігі</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q1_3" value="A"> Ұйымның болашақ бағытына әсер етеді</label>
+              <label class="option"><input type="radio" name="q1_3" value="B"> Құжат формасын уақытша өзгертеді</label>
+              <label class="option"><input type="radio" name="q1_3" value="C"> Кеңсе жұмысын қысқа реттейді</label>
+              <label class="option"><input type="radio" name="q1_3" value="D"> Қойма есебін қайта санайды</label>
+              <label class="option"><input type="radio" name="q1_3" value="E"> Бір күндік тапсырманы бөледі</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Стратегиялық шешім ұйымның болашағына, бәсекелік орнына
+              және даму бағытына әсер етеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">4</div>
+              <div class="q-text">Стратегиялық менеджмент нені ескеруі керек?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q1_4" value="A"> Кеңсе жиһазының орналасуын</label>
+              <label class="option"><input type="radio" name="q1_4" value="B"> Құжаттың сыртқы рәсімін</label>
+              <label class="option"><input type="radio" name="q1_4" value="C"> Сыртқы орта мен ішкі мүмкіндікті</label>
+              <label class="option"><input type="radio" name="q1_4" value="D"> Түскі үзіліс уақытын</label>
+              <label class="option"><input type="radio" name="q1_4" value="E"> Жеке өтініш үлгісін</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Стратегиялық менеджмент сыртқы жағдайды және ұйымның
+              ішкі мүмкіндігін бірге ескереді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="E">
+            <div class="question-title">
+              <div class="q-num">5</div>
+              <div class="q-text">Сыртқы ортаға жататын фактор</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q1_5" value="A"> Қызметкердің жеке үстелі</label>
+              <label class="option"><input type="radio" name="q1_5" value="B"> Ішкі бұйрықтың нөмірі</label>
+              <label class="option"><input type="radio" name="q1_5" value="C"> Кеңсе бөлмесінің көлемі</label>
+              <label class="option"><input type="radio" name="q1_5" value="D"> Ұйымның ішкі папкасы</label>
+              <label class="option"><input type="radio" name="q1_5" value="E"> Нарық пен бәсеке жағдайы</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: E. Нарық, бәсеке, экономика және технология сыртқы орта
+              факторларына жатады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">6</div>
+              <div class="q-text">Ішкі мүмкіндікке жататын көрсеткіш</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q1_6" value="A"> Нарықтағы жалпы сұраныс</label>
+              <label class="option"><input type="radio" name="q1_6" value="B"> Ұйым ресурсы мен қабілеті</label>
+              <label class="option"><input type="radio" name="q1_6" value="C"> Саладағы бәсеке деңгейі</label>
+              <label class="option"><input type="radio" name="q1_6" value="D"> Экономикалық орта өзгерісі</label>
+              <label class="option"><input type="radio" name="q1_6" value="E"> Технологиялық даму қарқыны</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Ішкі мүмкіндік ұйымның ресурсы, қабілеті, құрылымы және
+              басқару жүйесі арқылы көрінеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">7</div>
+              <div class="q-text">Стратегиялық менеджменттің басқарудағы рөлі</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q1_7" value="A"> Ағымдағы құжатты сақтау</label>
+              <label class="option"><input type="radio" name="q1_7" value="B"> Кеңсе тәртібін белгілеу</label>
+              <label class="option"><input type="radio" name="q1_7" value="C"> Қойма тізімін жаңарту</label>
+              <label class="option"><input type="radio" name="q1_7" value="D"> Ұзақ мерзімді бағытты анықтау</label>
+              <label class="option"><input type="radio" name="q1_7" value="E"> Ішкі хаттарды тіркеу</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Стратегиялық менеджмент ұйымның ұзақ мерзімді бағытын
+              анықтауға көмектеседі.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">8</div>
+              <div class="q-text">Стратегиялық басқару неге болашаққа бағытталады?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q1_8" value="A"> Ұйым дамуы алдын ала белгіленеді</label>
+              <label class="option"><input type="radio" name="q1_8" value="B"> Қойма есебі күнде жаңарады</label>
+              <label class="option"><input type="radio" name="q1_8" value="C"> Құжат формасы жиі өзгереді</label>
+              <label class="option"><input type="radio" name="q1_8" value="D"> Кеңсе жұмысы қысқа реттеледі</label>
+              <label class="option"><input type="radio" name="q1_8" value="E"> Жалақы кестесі сақталады</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Стратегиялық басқару ұйымның болашақтағы даму бағытын
+              алдын ала анықтауға бағытталады.
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="button" onclick="checkSection('ilyas-chapter-1-test')">
+            Нәтижені көрсету
+          </button>
+
+          <div class="result-panel" id="result-ilyas-chapter-1-test">
+            <strong>Нәтиже:</strong>
+            <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="section" id="chapter-2">
+      <div class="content-block">
+        <div class="section-kicker">2-блок · Жоспарлау және талдау</div>
+        <h3>Стратегиялық жоспарлау, талдау, болжау және бағдарламалау</h3>
+
+        <p>
+          Бұл блокта стратегиялық жоспарлау, стратегиялық талдау, болжау,
+          бағдарламалау және стратегиялық басқару кезеңдері қысқа қарастырылады.
+        </p>
+
+        <div class="note">
+          Негізгі ой: стратегиялық жоспарлау ұйымның болашақ мақсатын нақтылайды,
+          талдау сыртқы және ішкі жағдайды бағалайды, болжау болашақ өзгерісті
+          алдын ала көруге көмектеседі, бағдарламалау стратегияны нақты іс-шараға айналдырады.
+        </div>
+
+        <div class="theory-grid">
+          <div class="theory-card">
+            <strong>Стратегиялық жоспарлау</strong>
+            <p>Ұйымның ұзақ мерзімді мақсатын, бағытын және оған жету жолдарын анықтау процесі.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Стратегиялық талдау</strong>
+            <p>Сыртқы орта мен ішкі мүмкіндікті бағалап, стратегиялық шешімге негіз дайындау.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Болжау</strong>
+            <p>Болашақтағы өзгерістерді, қауіптерді және мүмкіндіктерді алдын ала бағалау.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Бағдарламалау</strong>
+            <p>Стратегиялық мақсатты нақты іс-шара, мерзім және орындау бағытына айналдыру.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Кезеңдер</strong>
+            <p>Талдау, мақсат қою, стратегия таңдау, іске асыру және бақылау кезеңдері байланысады.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Шешім негізі</strong>
+            <p>Стратегиялық шешім нақты ақпаратқа, талдауға және болашақ болжамына сүйенеді.</p>
+          </div>
+        </div>
+
+        <div class="test-box" data-test="ilyas-chapter-2-test">
+          <h3>Тест тапсырмалары</h3>
+          <p class="section-desc">
+            Әр сұрақта 5 жауап нұсқасы бар. Бір ғана дұрыс жауапты таңдаңыз.
+          </p>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">1</div>
+              <div class="q-text">Стратегиялық жоспарлаудың негізгі мазмұны</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q2_1" value="A"> Құжаттарды күн сайын тіркеу</label>
+              <label class="option"><input type="radio" name="q2_1" value="B"> Ұзақ мерзімді мақсатты анықтау</label>
+              <label class="option"><input type="radio" name="q2_1" value="C"> Қоймадағы қалдықты санау</label>
+              <label class="option"><input type="radio" name="q2_1" value="D"> Жалақы тізімін жаңарту</label>
+              <label class="option"><input type="radio" name="q2_1" value="E"> Кеңсе тәртібін бақылау</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Стратегиялық жоспарлау ұйымның ұзақ мерзімді мақсатын
+              және оған жету жолын анықтайды.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">2</div>
+              <div class="q-text">Стратегиялық талдаудың мақсаты</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q2_2" value="A"> Кеңсе құжаттарын сақтау</label>
+              <label class="option"><input type="radio" name="q2_2" value="B"> Еңбек демалысын бөлу</label>
+              <label class="option"><input type="radio" name="q2_2" value="C"> Қойма есебін жүргізу</label>
+              <label class="option"><input type="radio" name="q2_2" value="D"> Орта мен мүмкіндікті бағалау</label>
+              <label class="option"><input type="radio" name="q2_2" value="E"> Күндік тапсырманы тіркеу</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Стратегиялық талдау сыртқы орта мен ішкі мүмкіндікті
+              бағалауға бағытталады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">3</div>
+              <div class="q-text">Болжаудың стратегиялық басқарудағы қызметі</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q2_3" value="A"> Болашақ өзгерісті алдын ала бағалау</label>
+              <label class="option"><input type="radio" name="q2_3" value="B"> Құжаттың сыртқы түрін өзгерту</label>
+              <label class="option"><input type="radio" name="q2_3" value="C"> Жалақы төлемін уақытша тоқтату</label>
+              <label class="option"><input type="radio" name="q2_3" value="D"> Қоймадағы тауарды қайта санау</label>
+              <label class="option"><input type="radio" name="q2_3" value="E"> Ішкі хаттарды бөлек сақтау</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Болжау болашақтағы өзгеріс, қауіп және мүмкіндікті
+              алдын ала бағалауға көмектеседі.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">4</div>
+              <div class="q-text">Бағдарламалау нені білдіреді?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q2_4" value="A"> Құжат атауын қысқарту</label>
+              <label class="option"><input type="radio" name="q2_4" value="B"> Кеңсе папкасын реттеу</label>
+              <label class="option"><input type="radio" name="q2_4" value="C"> Мақсатты іс-шараға айналдыру</label>
+              <label class="option"><input type="radio" name="q2_4" value="D"> Қойма кестесін өзгерту</label>
+              <label class="option"><input type="radio" name="q2_4" value="E"> Есеп нөмірін жаңарту</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Бағдарламалау стратегиялық мақсатты нақты іс-шараға,
+              мерзімге және орындау бағытына айналдырады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="E">
+            <div class="question-title">
+              <div class="q-num">5</div>
+              <div class="q-text">Стратегиялық басқару кезеңдерінің дұрыс қатары</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q2_5" value="A"> Қойма, есеп, төлем, құжат</label>
+              <label class="option"><input type="radio" name="q2_5" value="B"> Кеңсе, хат, тіркеу, сақтау</label>
+              <label class="option"><input type="radio" name="q2_5" value="C"> Жалақы, демалыс, бұйрық, есеп</label>
+              <label class="option"><input type="radio" name="q2_5" value="D"> Өтініш, келісім, мөр, папка</label>
+              <label class="option"><input type="radio" name="q2_5" value="E"> Талдау, мақсат, таңдау, іске асыру, бақылау</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: E. Стратегиялық басқаруда талдау, мақсат қою, стратегия
+              таңдау, іске асыру және бақылау кезеңдері байланысады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">6</div>
+              <div class="q-text">Стратегиялық жоспарлауда ақпарат не үшін қажет?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q2_6" value="A"> Құжат түсін өзгерту үшін</label>
+              <label class="option"><input type="radio" name="q2_6" value="B"> Дұрыс шешім қабылдау үшін</label>
+              <label class="option"><input type="radio" name="q2_6" value="C"> Қойма есігін жабу үшін</label>
+              <label class="option"><input type="radio" name="q2_6" value="D"> Кеңсе кестесін ілу үшін</label>
+              <label class="option"><input type="radio" name="q2_6" value="E"> Ішкі хатты көшіру үшін</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Стратегиялық шешім нақты ақпаратқа, талдауға және
+              болашақ болжамына сүйенеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">7</div>
+              <div class="q-text">Стратегиялық талдауда салыстырылатын негізгі бағыт</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q2_7" value="A"> Құжат пен мөр</label>
+              <label class="option"><input type="radio" name="q2_7" value="B"> Папка мен сөре</label>
+              <label class="option"><input type="radio" name="q2_7" value="C"> Кесте мен өтініш</label>
+              <label class="option"><input type="radio" name="q2_7" value="D"> Орта мен ресурс</label>
+              <label class="option"><input type="radio" name="q2_7" value="E"> Хат пен бұйрық</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Стратегиялық талдау сыртқы ортаны және ұйым ресурсын
+              бірге бағалайды.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">8</div>
+              <div class="q-text">Болжау нәтижесі басқаруға қалай көмектеседі?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q2_8" value="A"> Болашақ қауіп пен мүмкіндікті көруге</label>
+              <label class="option"><input type="radio" name="q2_8" value="B"> Құжат санын көбейтуге</label>
+              <label class="option"><input type="radio" name="q2_8" value="C"> Кеңсе орнын ауыстыруға</label>
+              <label class="option"><input type="radio" name="q2_8" value="D"> Жалақы парағын бөлуге</label>
+              <label class="option"><input type="radio" name="q2_8" value="E"> Қойма есебін жабуға</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Болжау болашақтағы қауіп пен мүмкіндікті ертерек
+              көруге көмектеседі.
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="button" onclick="checkSection('ilyas-chapter-2-test')">
+            Нәтижені көрсету
+          </button>
+
+          <div class="result-panel" id="result-ilyas-chapter-2-test">
+            <strong>Нәтиже:</strong>
+            <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="section" id="chapter-3">
+      <div class="content-block">
+        <div class="section-kicker">3-блок · Орта және бәсеке</div>
+        <h3>Сыртқы және ішкі орта, бәсеке және SWOT логикасы</h3>
+
+        <p>
+          Бұл блокта ұйымның сыртқы ортасы, ішкі мүмкіндігі, бәсекелік жағдайы,
+          күшті және әлсіз жақтары, мүмкіндік пен қауіптер қысқа қарастырылады.
+        </p>
+
+        <div class="note">
+          Негізгі ой: стратегияны дұрыс таңдау үшін ұйым сыртқы ортадағы мүмкіндік
+          пен қауіпті, ішкі ортадағы күшті және әлсіз жақтарды салыстырады.
+        </div>
+
+        <div class="theory-grid">
+          <div class="theory-card">
+            <strong>Сыртқы орта</strong>
+            <p>Ұйымнан тыс нарық, бәсеке, экономика, технология және құқықтық факторлар.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Ішкі орта</strong>
+            <p>Ұйымның ресурсы, құрылымы, персоналы, қаржысы және басқару қабілеті.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Бәсекелік орта</strong>
+            <p>Ұйымның нарықтағы қарсыластары, олардың артықшылықтары және әрекет бағыты.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>SWOT логикасы</strong>
+            <p>Күшті жақ, әлсіз жақ, мүмкіндік және қауіптерді бірге бағалау тәсілі.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Күшті жақ</strong>
+            <p>Ұйымға бәсекеде артықшылық беретін ішкі ресурс немесе қабілет.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Қауіп</strong>
+            <p>Сыртқы ортадан келетін және ұйым дамуына кедергі жасайтын фактор.</p>
+          </div>
+        </div>
+
+        <div class="test-box" data-test="ilyas-chapter-3-test">
+          <h3>Тест тапсырмалары</h3>
+          <p class="section-desc">
+            Әр сұрақта 5 жауап нұсқасы бар. Бір ғана дұрыс жауапты таңдаңыз.
+          </p>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">1</div>
+              <div class="q-text">Сыртқы ортаға жататын фактор</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q3_1" value="A"> Ұйымның ішкі құрылымы</label>
+              <label class="option"><input type="radio" name="q3_1" value="B"> Нарықтағы бәсеке жағдайы</label>
+              <label class="option"><input type="radio" name="q3_1" value="C"> Персоналдың кәсіби деңгейі</label>
+              <label class="option"><input type="radio" name="q3_1" value="D"> Басқару жүйесінің сапасы</label>
+              <label class="option"><input type="radio" name="q3_1" value="E"> Ұйым ресурсының көлемі</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Нарық пен бәсеке ұйымнан тыс сыртқы орта факторларына жатады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">2</div>
+              <div class="q-text">Ішкі ортаға жататын көрсеткіш</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q3_2" value="A"> Саладағы бәсеке қысымы</label>
+              <label class="option"><input type="radio" name="q3_2" value="B"> Нарықтағы сұраныс өзгерісі</label>
+              <label class="option"><input type="radio" name="q3_2" value="C"> Экономикалық орта жағдайы</label>
+              <label class="option"><input type="radio" name="q3_2" value="D"> Ұйымның ресурсы мен персоналы</label>
+              <label class="option"><input type="radio" name="q3_2" value="E"> Технологиялық даму қарқыны</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Ішкі орта ұйымның ресурсы, персоналы, құрылымы және басқару қабілеті арқылы сипатталады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">3</div>
+              <div class="q-text">SWOT талдаудың негізгі мазмұны</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q3_3" value="A"> Күшті, әлсіз жақ, мүмкіндік және қауіпті бағалау</label>
+              <label class="option"><input type="radio" name="q3_3" value="B"> Жалақы, демалыс, құжат және есепті бағалау</label>
+              <label class="option"><input type="radio" name="q3_3" value="C"> Қойма, жеткізу, сақтау және мөрді бағалау</label>
+              <label class="option"><input type="radio" name="q3_3" value="D"> Кеңсе, папка, өтініш және хатты бағалау</label>
+              <label class="option"><input type="radio" name="q3_3" value="E"> Кесте, бұйрық, нөмір және тіркеуді бағалау</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. SWOT күшті және әлсіз жақтарды, мүмкіндік пен қауіпті бірге бағалайды.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">4</div>
+              <div class="q-text">Күшті жаққа сәйкес келетін сипат</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q3_4" value="A"> Сыртқы ортадан келетін қауіп</label>
+              <label class="option"><input type="radio" name="q3_4" value="B"> Нарықтағы белгісіз өзгеріс</label>
+              <label class="option"><input type="radio" name="q3_4" value="C"> Ұйымға артықшылық беретін ішкі қабілет</label>
+              <label class="option"><input type="radio" name="q3_4" value="D"> Бәсекелестің жаңа әрекеті</label>
+              <label class="option"><input type="radio" name="q3_4" value="E"> Экономикадағы тұрақсыздық</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Күшті жақ ұйымға бәсекеде артықшылық беретін ішкі ресурс немесе қабілет.
+            </div>
+          </div>
+
+          <div class="question" data-answer="E">
+            <div class="question-title">
+              <div class="q-num">5</div>
+              <div class="q-text">Әлсіз жаққа сәйкес келетін сипат</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q3_5" value="A"> Нарықтағы жаңа мүмкіндік</label>
+              <label class="option"><input type="radio" name="q3_5" value="B"> Саладағы сұраныс өсуі</label>
+              <label class="option"><input type="radio" name="q3_5" value="C"> Технологиялық даму бағыты</label>
+              <label class="option"><input type="radio" name="q3_5" value="D"> Бәсекелестің сыртқы қысымы</label>
+              <label class="option"><input type="radio" name="q3_5" value="E"> Ұйым ішіндегі шектеулі мүмкіндік</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: E. Әлсіз жақ ұйымның ішкі шектеуі немесе бәсекеде кедергі болатын тұсы.
+            </div>
+          </div>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">6</div>
+              <div class="q-text">Мүмкіндік ұғымына сәйкес келетін нұсқа</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q3_6" value="A"> Ұйым ішіндегі ресурс тапшылығы</label>
+              <label class="option"><input type="radio" name="q3_6" value="B"> Сыртқы ортадағы қолайлы жағдай</label>
+              <label class="option"><input type="radio" name="q3_6" value="C"> Басқару жүйесіндегі әлсіздік</label>
+              <label class="option"><input type="radio" name="q3_6" value="D"> Қызметкер қабілетінің төмендеуі</label>
+              <label class="option"><input type="radio" name="q3_6" value="E"> Ішкі құрылымдағы сәйкессіздік</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Мүмкіндік сыртқы ортадағы ұйым дамуына пайдалы жағдайды білдіреді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">7</div>
+              <div class="q-text">Қауіп ұғымына сәйкес келетін нұсқа</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q3_7" value="A"> Ұйымның кәсіби персоналы</label>
+              <label class="option"><input type="radio" name="q3_7" value="B"> Басқару жүйесінің артықшылығы</label>
+              <label class="option"><input type="radio" name="q3_7" value="C"> Ішкі ресурстың жеткіліктілігі</label>
+              <label class="option"><input type="radio" name="q3_7" value="D"> Сыртқы ортадағы қолайсыз фактор</label>
+              <label class="option"><input type="radio" name="q3_7" value="E"> Ұйым қабілетінің жоғарылауы</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Қауіп сыртқы ортадан келетін және ұйым дамуына кедергі жасайтын фактор.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">8</div>
+              <div class="q-text">Бәсекелік ортаны талдаудың мақсаты</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q3_8" value="A"> Нарықтағы қарсыластар әрекетін бағалау</label>
+              <label class="option"><input type="radio" name="q3_8" value="B"> Ішкі құжаттардың санын анықтау</label>
+              <label class="option"><input type="radio" name="q3_8" value="C"> Қоймадағы папкаларды реттеу</label>
+              <label class="option"><input type="radio" name="q3_8" value="D"> Жалақы кестесін қайта бөлу</label>
+              <label class="option"><input type="radio" name="q3_8" value="E"> Кеңсе бөлмесін ауыстыру</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Бәсекелік орта қарсыластардың әрекетін, артықшылығын және нарықтағы орнын бағалауға көмектеседі.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">9</div>
+              <div class="q-text">Сыртқы және ішкі талдаудың стратегиялық нәтижесі</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q3_9" value="A"> Құжаттарды сақтау орны анықталады</label>
+              <label class="option"><input type="radio" name="q3_9" value="B"> Кеңсе кестесі қайта жасалады</label>
+              <label class="option"><input type="radio" name="q3_9" value="C"> Стратегия таңдауға негіз қалыптасады</label>
+              <label class="option"><input type="radio" name="q3_9" value="D"> Қоймадағы заттар қайта саналады</label>
+              <label class="option"><input type="radio" name="q3_9" value="E"> Ішкі хаттардың формасы өзгереді</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Сыртқы және ішкі талдау стратегияны дұрыс таңдауға негіз дайындайды.
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="button" onclick="checkSection('ilyas-chapter-3-test')">
+            Нәтижені көрсету
+          </button>
+
+          <div class="result-panel" id="result-ilyas-chapter-3-test">
+            <strong>Нәтиже:</strong>
+            <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="section" id="chapter-4">
+      <div class="content-block">
+        <div class="section-kicker">4-блок · Стратегияны әзірлеу</div>
+        <h3>Миссия, мақсат, стратегия деңгейлері және бәсекелік артықшылық</h3>
+
+        <p>
+          Бұл блокта миссия, стратегиялық мақсат, стратегияны таңдау, стратегия
+          деңгейлері және бәсекелік артықшылық қысқа қарастырылады.
+        </p>
+
+        <div class="note">
+          Негізгі ой: стратегия ұйым миссиясына және мақсатына сүйенеді. 
+          Стратегия деңгейлері ұйым, бизнес және функционалдық бағыттарда көрінеді.
+          Бәсекелік артықшылық ұйымның нарықтағы тұрақты орнын күшейтеді.
+        </div>
+
+        <div class="theory-grid">
+          <div class="theory-card">
+            <strong>Миссия</strong>
+            <p>Ұйымның не үшін қызмет ететінін және негізгі бағытын көрсететін тұжырым.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Стратегиялық мақсат</strong>
+            <p>Ұйымның болашақта жетуге ұмтылатын нақты нәтижесі.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Стратегия таңдау</strong>
+            <p>Орта мен ресурсты ескеріп, мақсатқа жеткізетін бағытты анықтау.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Корпоративтік деңгей</strong>
+            <p>Ұйымның жалпы даму бағытын және қызмет салаларын анықтайды.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Бизнес деңгей</strong>
+            <p>Нақты нарықта қалай бәсекелесу керегін көрсетеді.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Функционалдық деңгей</strong>
+            <p>Маркетинг, қаржы, өндіріс, персонал сияқты бағыттардың әрекетін нақтылайды.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Бәсекелік артықшылық</strong>
+            <p>Ұйымды бәсекелестерден ерекшелендіріп, нарықтағы орнын күшейтетін фактор.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Бәсекеге қабілеттілік</strong>
+            <p>Ұйымның нарықта тиімді әрекет етіп, артықшылықты сақтай алу қабілеті.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Стратегиялық таңдау</strong>
+            <p>Ұйым мүмкіндігі мен сыртқы орта талабына сәйкес келетін стратегияны бекіту.</p>
+          </div>
+        </div>
+
+        <div class="test-box" data-test="ilyas-chapter-4-test">
+          <h3>Тест тапсырмалары</h3>
+          <p class="section-desc">
+            Әр сұрақта 5 жауап нұсқасы бар. Бір ғана дұрыс жауапты таңдаңыз.
+          </p>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">1</div>
+              <div class="q-text">Миссия ұғымының негізгі мазмұны</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q4_1" value="A"> Қоймадағы материал тізімі</label>
+              <label class="option"><input type="radio" name="q4_1" value="B"> Ұйымның қызмет ету мақсаты</label>
+              <label class="option"><input type="radio" name="q4_1" value="C"> Құжаттарды тіркеу тәртібі</label>
+              <label class="option"><input type="radio" name="q4_1" value="D"> Жалақы төлеу кестесі</label>
+              <label class="option"><input type="radio" name="q4_1" value="E"> Кеңсе жұмысының ережесі</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Миссия ұйымның не үшін қызмет ететінін және негізгі бағытын көрсетеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">2</div>
+              <div class="q-text">Стратегиялық мақсат нені білдіреді?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q4_2" value="A"> Қысқа хат жазу тәртібін</label>
+              <label class="option"><input type="radio" name="q4_2" value="B"> Қойма қорын бөлу тәсілін</label>
+              <label class="option"><input type="radio" name="q4_2" value="C"> Кеңсе құжатын сақтау орнын</label>
+              <label class="option"><input type="radio" name="q4_2" value="D"> Болашақта жетуге тиіс нәтижені</label>
+              <label class="option"><input type="radio" name="q4_2" value="E"> Ішкі өтініш формасын</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Стратегиялық мақсат ұйымның болашақта жетуге ұмтылатын нәтижесін білдіреді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">3</div>
+              <div class="q-text">Стратегия таңдаудың негізгі шарты</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q4_3" value="A"> Орта мен ресурсты ескеру</label>
+              <label class="option"><input type="radio" name="q4_3" value="B"> Құжат санын көбейту</label>
+              <label class="option"><input type="radio" name="q4_3" value="C"> Кеңсе орнын ауыстыру</label>
+              <label class="option"><input type="radio" name="q4_3" value="D"> Папка атауын өзгерту</label>
+              <label class="option"><input type="radio" name="q4_3" value="E"> Есеп бетін қысқарту</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Стратегия ұйым мүмкіндігі мен сыртқы орта талабына сәйкес таңдалады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">4</div>
+              <div class="q-text">Корпоративтік стратегия деңгейі нені анықтайды?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q4_4" value="A"> Бір қызметкердің күндік міндетін</label>
+              <label class="option"><input type="radio" name="q4_4" value="B"> Бір құжаттың ішкі нөмірін</label>
+              <label class="option"><input type="radio" name="q4_4" value="C"> Ұйымның жалпы даму бағытын</label>
+              <label class="option"><input type="radio" name="q4_4" value="D"> Қоймадағы жеке сөрені</label>
+              <label class="option"><input type="radio" name="q4_4" value="E"> Кеңсе жабдығын орналастыруды</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Корпоративтік деңгей ұйымның жалпы даму бағытын және қызмет салаларын анықтайды.
+            </div>
+          </div>
+
+          <div class="question" data-answer="E">
+            <div class="question-title">
+              <div class="q-num">5</div>
+              <div class="q-text">Бизнес деңгейіндегі стратегияның мазмұны</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q4_5" value="A"> Құжаттарды қалай нөмірлеуді көрсетеді</label>
+              <label class="option"><input type="radio" name="q4_5" value="B"> Кеңсе ішінде хатты қалай сақтауды көрсетеді</label>
+              <label class="option"><input type="radio" name="q4_5" value="C"> Қоймадағы қалдықты қалай санауды көрсетеді</label>
+              <label class="option"><input type="radio" name="q4_5" value="D"> Жалақы тізімін қалай жасауды көрсетеді</label>
+              <label class="option"><input type="radio" name="q4_5" value="E"> Нарықта қалай бәсекелесуді көрсетеді</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: E. Бизнес деңгейіндегі стратегия нақты нарықта қалай бәсекелесу керегін көрсетеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">6</div>
+              <div class="q-text">Функционалдық стратегияға сәйкес бағыт</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q4_6" value="A"> Саладағы жалпы бәсеке қысымы</label>
+              <label class="option"><input type="radio" name="q4_6" value="B"> Маркетинг пен қаржы әрекеті</label>
+              <label class="option"><input type="radio" name="q4_6" value="C"> Нарықтағы сыртқы қауіп</label>
+              <label class="option"><input type="radio" name="q4_6" value="D"> Экономикадағы тұрақсыздық</label>
+              <label class="option"><input type="radio" name="q4_6" value="E"> Бәсекелестің жаңа өнімі</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Функционалдық деңгей маркетинг, қаржы, өндіріс және персонал бағыттарын нақтылайды.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">7</div>
+              <div class="q-text">Бәсекелік артықшылықтың мәні</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q4_7" value="A"> Құжаттардың бір жерде сақталуы</label>
+              <label class="option"><input type="radio" name="q4_7" value="B"> Кеңсе тәртібінің өзгермеуі</label>
+              <label class="option"><input type="radio" name="q4_7" value="C"> Жалақы кестесінің тұрақтылығы</label>
+              <label class="option"><input type="radio" name="q4_7" value="D"> Ұйымды нарықта ерекшелендіретін фактор</label>
+              <label class="option"><input type="radio" name="q4_7" value="E"> Қойма есебінің толықтығы</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Бәсекелік артықшылық ұйымды бәсекелестерден ерекшелендіріп, нарықтағы орнын күшейтеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">8</div>
+              <div class="q-text">Бәсекеге қабілеттілік нені көрсетеді?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q4_8" value="A"> Нарықта тиімді әрекет ету қабілетін</label>
+              <label class="option"><input type="radio" name="q4_8" value="B"> Құжатты тез тіркеу қабілетін</label>
+              <label class="option"><input type="radio" name="q4_8" value="C"> Қойма сөресін бөлу қабілетін</label>
+              <label class="option"><input type="radio" name="q4_8" value="D"> Кеңсе хаттарын сақтау қабілетін</label>
+              <label class="option"><input type="radio" name="q4_8" value="E"> Жалақы тізімін көшіру қабілетін</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Бәсекеге қабілеттілік ұйымның нарықта тиімді әрекет етіп, артықшылықты сақтай алу қабілетін көрсетеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">9</div>
+              <div class="q-text">Стратегиялық таңдау неге сүйенеді?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q4_9" value="A"> Құжаттың сыртқы түсіне</label>
+              <label class="option"><input type="radio" name="q4_9" value="B"> Кеңсе ішіндегі орынға</label>
+              <label class="option"><input type="radio" name="q4_9" value="C"> Орта талдауы мен ұйым мүмкіндігіне</label>
+              <label class="option"><input type="radio" name="q4_9" value="D"> Қоймадағы папка санына</label>
+              <label class="option"><input type="radio" name="q4_9" value="E"> Ішкі хаттардың атауына</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Стратегиялық таңдау сыртқы орта талдауына және ұйымның ішкі мүмкіндігіне сүйенеді.
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="button" onclick="checkSection('ilyas-chapter-4-test')">
+            Нәтижені көрсету
+          </button>
+
+          <div class="result-panel" id="result-ilyas-chapter-4-test">
+            <strong>Нәтиже:</strong>
+            <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="section" id="chapter-5">
+      <div class="content-block">
+        <div class="section-kicker">5-блок · Іске асыру және бақылау</div>
+        <h3>Стратегияны іске асыру, бизнес-жоспарлау, бақылау және шешім тиімділігі</h3>
+
+        <p>
+          Бұл блокта стратегияны нақты әрекетке айналдыру, бизнес-жоспарлау,
+          орындауды бақылау және басқару шешімінің тиімділігін бағалау қысқа қарастырылады.
+        </p>
+
+        <div class="note">
+          Негізгі ой: стратегия қағазда қалмауы керек. Ол нақты іс-шараға, ресурсқа,
+          мерзімге, жауапты орындаушыға және бақылау көрсеткіштеріне айналғанда іске асады.
+        </div>
+
+        <div class="theory-grid">
+          <div class="theory-card">
+            <strong>Стратегияны іске асыру</strong>
+            <p>Таңдалған стратегияны нақты іс-шара, ресурс және орындау жүйесі арқылы жүзеге асыру.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Бизнес-жоспарлау</strong>
+            <p>Жоба мақсатын, нарығын, ресурсын, қаржысын және күтілетін нәтижесін жүйелеу.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Ресурс бөлу</strong>
+            <p>Стратегияны орындау үшін қаржы, адам, уақыт және материал мүмкіндігін бағыттау.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Ұйымдық қолдау</strong>
+            <p>Құрылым, персонал және басқару жүйесі стратегияны іске асыруға сәйкес болуы керек.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Стратегиялық бақылау</strong>
+            <p>Стратегия орындалуын бақылау, нәтижені жоспармен салыстыру және түзету енгізу.</p>
+          </div>
+
+          <div class="theory-card">
+            <strong>Шешім тиімділігі</strong>
+            <p>Басқару шешімінің мақсатқа, нәтижеге және ресурс шығынына әсерін бағалау.</p>
+          </div>
+        </div>
+
+        <div class="test-box" data-test="ilyas-chapter-5-test">
+          <h3>Тест тапсырмалары</h3>
+          <p class="section-desc">
+            Әр сұрақта 5 жауап нұсқасы бар. Бір ғана дұрыс жауапты таңдаңыз.
+          </p>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">1</div>
+              <div class="q-text">Стратегияны іске асырудың негізгі мәні</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q5_1" value="A"> Құжат атауын өзгерту</label>
+              <label class="option"><input type="radio" name="q5_1" value="B"> Стратегияны нақты әрекетке айналдыру</label>
+              <label class="option"><input type="radio" name="q5_1" value="C"> Қоймадағы қалдықты санау</label>
+              <label class="option"><input type="radio" name="q5_1" value="D"> Кеңсе папкасын реттеу</label>
+              <label class="option"><input type="radio" name="q5_1" value="E"> Ішкі хатты тіркеу</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Іске асыру стратегияны нақты іс-шараға, ресурсқа және орындау жүйесіне айналдырады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">2</div>
+              <div class="q-text">Бизнес-жоспарлаудың негізгі мазмұны</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q5_2" value="A"> Құжаттарды сақтау тәртібін белгілеу</label>
+              <label class="option"><input type="radio" name="q5_2" value="B"> Кеңсе жабдығын орналастыру</label>
+              <label class="option"><input type="radio" name="q5_2" value="C"> Қойма есебін қысқа жаңарту</label>
+              <label class="option"><input type="radio" name="q5_2" value="D"> Жоба мақсатын, нарығын және қаржысын жүйелеу</label>
+              <label class="option"><input type="radio" name="q5_2" value="E"> Ішкі өтініш формасын толтыру</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Бизнес-жоспар жоба мақсатын, нарығын, ресурсын, қаржысын және нәтижесін көрсетеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">3</div>
+              <div class="q-text">Ресурс бөлудің стратегиялық мәні</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q5_3" value="A"> Стратегияға қажет мүмкіндікті бағыттау</label>
+              <label class="option"><input type="radio" name="q5_3" value="B"> Құжаттардың түсін ауыстыру</label>
+              <label class="option"><input type="radio" name="q5_3" value="C"> Кеңсе кестесін ілу</label>
+              <label class="option"><input type="radio" name="q5_3" value="D"> Қойма есігін жабу</label>
+              <label class="option"><input type="radio" name="q5_3" value="E"> Ішкі хатты көшіру</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Ресурс бөлу стратегияны орындауға қажет қаржы, адам, уақыт және материалды бағыттайды.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">4</div>
+              <div class="q-text">Ұйымдық қолдау нені білдіреді?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q5_4" value="A"> Құжат атауын қысқарту</label>
+              <label class="option"><input type="radio" name="q5_4" value="B"> Қойма сөресін таңдау</label>
+              <label class="option"><input type="radio" name="q5_4" value="C"> Құрылым мен персоналды стратегияға сәйкестендіру</label>
+              <label class="option"><input type="radio" name="q5_4" value="D"> Жеке өтініш үлгісін өзгерту</label>
+              <label class="option"><input type="radio" name="q5_4" value="E"> Кеңсе кілтін тіркеу</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Ұйымдық қолдау құрылым, персонал және басқару жүйесінің стратегияға сай болуын білдіреді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="E">
+            <div class="question-title">
+              <div class="q-num">5</div>
+              <div class="q-text">Стратегиялық бақылаудың мақсаты</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q5_5" value="A"> Құжат папкасын көбейту</label>
+              <label class="option"><input type="radio" name="q5_5" value="B"> Кеңсе ішін қайта бөлу</label>
+              <label class="option"><input type="radio" name="q5_5" value="C"> Қойма есебін жабу</label>
+              <label class="option"><input type="radio" name="q5_5" value="D"> Жалақы тізімін көшіру</label>
+              <label class="option"><input type="radio" name="q5_5" value="E"> Нәтижені жоспармен салыстыру</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: E. Стратегиялық бақылау орындалған нәтижені жоспармен салыстырып, қажет болса түзету енгізеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">6</div>
+              <div class="q-text">Түзету енгізу қай кезде қажет?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q5_6" value="A"> Құжат түсі өзгерген кезде</label>
+              <label class="option"><input type="radio" name="q5_6" value="B"> Нәтиже жоспардан ауытқыған кезде</label>
+              <label class="option"><input type="radio" name="q5_6" value="C"> Кеңсе орны бос тұрған кезде</label>
+              <label class="option"><input type="radio" name="q5_6" value="D"> Қойма сөресі ауысқан кезде</label>
+              <label class="option"><input type="radio" name="q5_6" value="E"> Ішкі хат тіркелген кезде</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Егер стратегия нәтижесі жоспардан ауытқыса, басқару шешіміне түзету енгізіледі.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">7</div>
+              <div class="q-text">Шешім тиімділігін бағалау нені көрсетеді?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q5_7" value="A"> Құжат санының өсуін</label>
+              <label class="option"><input type="radio" name="q5_7" value="B"> Кеңсе тәртібінің түрін</label>
+              <label class="option"><input type="radio" name="q5_7" value="C"> Қойма папкасының орнын</label>
+              <label class="option"><input type="radio" name="q5_7" value="D"> Мақсатқа жету мен ресурс шығынын</label>
+              <label class="option"><input type="radio" name="q5_7" value="E"> Ішкі хаттың формасын</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Тиімділік шешімнің мақсатқа, нәтижеге және ресурс шығынына әсерін көрсетеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">8</div>
+              <div class="q-text">Стратегияны іске асыруға қажет негізгі шарт</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q5_8" value="A"> Жауапты орындаушы мен мерзімді белгілеу</label>
+              <label class="option"><input type="radio" name="q5_8" value="B"> Құжат атауын жиі өзгерту</label>
+              <label class="option"><input type="radio" name="q5_8" value="C"> Қоймадағы папканы бояу</label>
+              <label class="option"><input type="radio" name="q5_8" value="D"> Кеңсе ішін безендіру</label>
+              <label class="option"><input type="radio" name="q5_8" value="E"> Ішкі хаттың көшірмесін сақтау</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Стратегия нақты орындаушы, мерзім, ресурс және бақылау көрсеткіші арқылы іске асады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">9</div>
+              <div class="q-text">Бизнес-жоспар стратегиялық басқаруда не үшін қолданылады?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q5_9" value="A"> Құжаттарды архивке салу үшін</label>
+              <label class="option"><input type="radio" name="q5_9" value="B"> Кеңсе хаттарын тіркеу үшін</label>
+              <label class="option"><input type="radio" name="q5_9" value="C"> Жобаны негіздеу және іске асыру үшін</label>
+              <label class="option"><input type="radio" name="q5_9" value="D"> Қойма қалдығын жабу үшін</label>
+              <label class="option"><input type="radio" name="q5_9" value="E"> Жалақы тізімін сақтау үшін</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Бизнес-жоспар жоба мақсатын негіздеп, оны іске асыру жолын көрсетеді.
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="button" onclick="checkSection('ilyas-chapter-5-test')">
+            Нәтижені көрсету
+          </button>
+
+          <div class="result-panel" id="result-ilyas-chapter-5-test">
+            <strong>Нәтиже:</strong>
+            <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="section" id="chapter-6">
+      <div class="content-block">
+        <div class="section-kicker">6-блок · Қорытынды тест</div>
+        <h3>Ильяс А. бойынша стратегиялық менеджментті қайталау</h3>
+
+        <p>
+          Бұл қорытынды тест стратегиялық менеджменттің мәні, жоспарлау, талдау,
+          сыртқы және ішкі орта, стратегия таңдау, іске асыру, бақылау және шешім
+          тиімділігі бойынша негізгі фактілерді қайталайды.
+        </p>
+
+        <div class="test-box" data-test="ilyas-chapter-6-test">
+          <h3>Қорытынды тест</h3>
+          <p class="section-desc">
+            Әр сұрақта 5 жауап нұсқасы бар. Бір ғана дұрыс жауапты таңдаңыз.
+          </p>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">1</div>
+              <div class="q-text">Стратегиялық менеджменттің басты бағыты</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_1" value="A"> Құжат айналымын тіркеу</label>
+              <label class="option"><input type="radio" name="q6_1" value="B"> Ұзақ мерзімді дамуды басқару</label>
+              <label class="option"><input type="radio" name="q6_1" value="C"> Қойма қалдығын санау</label>
+              <label class="option"><input type="radio" name="q6_1" value="D"> Жалақы кестесін бөлу</label>
+              <label class="option"><input type="radio" name="q6_1" value="E"> Кеңсе тәртібін сақтау</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Стратегиялық менеджмент ұйымның ұзақ мерзімді дамуын басқаруға бағытталады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">2</div>
+              <div class="q-text">Стратегия ұғымына сәйкес келетін нұсқа</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_2" value="A"> Ішкі құжат формасы</label>
+              <label class="option"><input type="radio" name="q6_2" value="B"> Қойма есебі тәртібі</label>
+              <label class="option"><input type="radio" name="q6_2" value="C"> Кеңсе жұмыс кестесі</label>
+              <label class="option"><input type="radio" name="q6_2" value="D"> Мақсатқа жету бағыты</label>
+              <label class="option"><input type="radio" name="q6_2" value="E"> Жалақы төлеу тізімі</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Стратегия ұйым мақсатына жетудің ұзақ мерзімді бағытын білдіреді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">3</div>
+              <div class="q-text">Стратегиялық талдау не үшін қажет?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_3" value="A"> Орта мен ресурсты бағалау үшін</label>
+              <label class="option"><input type="radio" name="q6_3" value="B"> Құжат атауын өзгерту үшін</label>
+              <label class="option"><input type="radio" name="q6_3" value="C"> Кеңсе орнын ауыстыру үшін</label>
+              <label class="option"><input type="radio" name="q6_3" value="D"> Қойма есігін жабу үшін</label>
+              <label class="option"><input type="radio" name="q6_3" value="E"> Ішкі хатты көшіру үшін</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Стратегиялық талдау сыртқы орта мен ішкі мүмкіндікті бағалайды.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">4</div>
+              <div class="q-text">Болжаудың негізгі қызметі</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_4" value="A"> Құжат санын көбейту</label>
+              <label class="option"><input type="radio" name="q6_4" value="B"> Қойма есебін жабу</label>
+              <label class="option"><input type="radio" name="q6_4" value="C"> Болашақ өзгерісті бағалау</label>
+              <label class="option"><input type="radio" name="q6_4" value="D"> Кеңсе кілтін тіркеу</label>
+              <label class="option"><input type="radio" name="q6_4" value="E"> Жалақы парағын көшіру</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Болжау болашақ өзгерісті, қауіп пен мүмкіндікті алдын ала бағалайды.
+            </div>
+          </div>
+
+          <div class="question" data-answer="E">
+            <div class="question-title">
+              <div class="q-num">5</div>
+              <div class="q-text">SWOT талдаудың мазмұны</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_5" value="A"> Қойма, жеткізу, сақтау, мөр</label>
+              <label class="option"><input type="radio" name="q6_5" value="B"> Құжат, өтініш, бұйрық, хат</label>
+              <label class="option"><input type="radio" name="q6_5" value="C"> Жалақы, демалыс, есеп, кесте</label>
+              <label class="option"><input type="radio" name="q6_5" value="D"> Кеңсе, папка, сөре, нөмір</label>
+              <label class="option"><input type="radio" name="q6_5" value="E"> Күш, әлсіздік, мүмкіндік, қауіп</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: E. SWOT күшті жақ, әлсіз жақ, мүмкіндік және қауіпті бағалайды.
+            </div>
+          </div>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">6</div>
+              <div class="q-text">Миссия нені көрсетеді?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_6" value="A"> Қойма қалдығын</label>
+              <label class="option"><input type="radio" name="q6_6" value="B"> Ұйымның қызмет мақсатын</label>
+              <label class="option"><input type="radio" name="q6_6" value="C"> Құжат нөмірін</label>
+              <label class="option"><input type="radio" name="q6_6" value="D"> Кеңсе жабдығын</label>
+              <label class="option"><input type="radio" name="q6_6" value="E"> Жалақы тізімін</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Миссия ұйымның не үшін қызмет ететінін және негізгі бағытын көрсетеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">7</div>
+              <div class="q-text">Бизнес деңгейіндегі стратегия нені анықтайды?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_7" value="A"> Құжаттарды сақтау ретін</label>
+              <label class="option"><input type="radio" name="q6_7" value="B"> Қойма папкасының орнын</label>
+              <label class="option"><input type="radio" name="q6_7" value="C"> Кеңсе ішіндегі қозғалысты</label>
+              <label class="option"><input type="radio" name="q6_7" value="D"> Нарықта бәсекелесу жолын</label>
+              <label class="option"><input type="radio" name="q6_7" value="E"> Ішкі өтініш формасын</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Бизнес деңгейіндегі стратегия нақты нарықта қалай бәсекелесуді көрсетеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="A">
+            <div class="question-title">
+              <div class="q-num">8</div>
+              <div class="q-text">Бәсекелік артықшылық нені білдіреді?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_8" value="A"> Ұйымды нарықта ерекшелендіретін фактор</label>
+              <label class="option"><input type="radio" name="q6_8" value="B"> Құжатты жылдам тіркейтін тәртіп</label>
+              <label class="option"><input type="radio" name="q6_8" value="C"> Қоймадағы сөрені бөлетін ереже</label>
+              <label class="option"><input type="radio" name="q6_8" value="D"> Кеңсе жұмысын қысқартатын кесте</label>
+              <label class="option"><input type="radio" name="q6_8" value="E"> Жалақы парағын сақтайтын папка</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: A. Бәсекелік артықшылық ұйымды бәсекелестерден ерекшелендіреді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="C">
+            <div class="question-title">
+              <div class="q-num">9</div>
+              <div class="q-text">Стратегияны іске асырудың мәні</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_9" value="A"> Құжат атауын ауыстыру</label>
+              <label class="option"><input type="radio" name="q6_9" value="B"> Қойма есебін жаңарту</label>
+              <label class="option"><input type="radio" name="q6_9" value="C"> Стратегияны әрекетке айналдыру</label>
+              <label class="option"><input type="radio" name="q6_9" value="D"> Кеңсе ішін реттеу</label>
+              <label class="option"><input type="radio" name="q6_9" value="E"> Ішкі хатты тіркеу</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: C. Іске асыру стратегияны нақты әрекетке, ресурсқа және мерзімге айналдырады.
+            </div>
+          </div>
+
+          <div class="question" data-answer="B">
+            <div class="question-title">
+              <div class="q-num">10</div>
+              <div class="q-text">Бизнес-жоспар не үшін қолданылады?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_10" value="A"> Құжаттарды архивке салу үшін</label>
+              <label class="option"><input type="radio" name="q6_10" value="B"> Жобаны негіздеу және іске асыру үшін</label>
+              <label class="option"><input type="radio" name="q6_10" value="C"> Қойма есебін жабу үшін</label>
+              <label class="option"><input type="radio" name="q6_10" value="D"> Кеңсе хаттарын көшіру үшін</label>
+              <label class="option"><input type="radio" name="q6_10" value="E"> Жалақы тізімін сақтау үшін</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: B. Бизнес-жоспар жоба мақсатын негіздеп, іске асыру жолын көрсетеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="E">
+            <div class="question-title">
+              <div class="q-num">11</div>
+              <div class="q-text">Стратегиялық бақылаудың негізгі мақсаты</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_11" value="A"> Құжат санын көбейту</label>
+              <label class="option"><input type="radio" name="q6_11" value="B"> Қойма есігін жабу</label>
+              <label class="option"><input type="radio" name="q6_11" value="C"> Кеңсе ішін өзгерту</label>
+              <label class="option"><input type="radio" name="q6_11" value="D"> Жалақы парағын көшіру</label>
+              <label class="option"><input type="radio" name="q6_11" value="E"> Нәтижені жоспармен салыстыру</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: E. Стратегиялық бақылау нәтижені жоспармен салыстырады және түзету енгізеді.
+            </div>
+          </div>
+
+          <div class="question" data-answer="D">
+            <div class="question-title">
+              <div class="q-num">12</div>
+              <div class="q-text">Шешім тиімділігі қалай бағаланады?</div>
+            </div>
+
+            <div class="options">
+              <label class="option"><input type="radio" name="q6_12" value="A"> Құжаттың түсі арқылы</label>
+              <label class="option"><input type="radio" name="q6_12" value="B"> Кеңсе орны арқылы</label>
+              <label class="option"><input type="radio" name="q6_12" value="C"> Қойма сөресі арқылы</label>
+              <label class="option"><input type="radio" name="q6_12" value="D"> Нәтиже мен ресурс арқылы</label>
+              <label class="option"><input type="radio" name="q6_12" value="E"> Ішкі хат арқылы</label>
+            </div>
+
+            <div class="explanation">
+              Дұрыс жауап: D. Тиімділік мақсатқа жету, нәтиже және ресурс шығыны арқылы бағаланады.
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="button" onclick="checkSection('ilyas-chapter-6-test')">
+            Нәтижені көрсету
+          </button>
+
+          <div class="result-panel" id="result-ilyas-chapter-6-test">
+            <strong>Нәтиже:</strong>
+            <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="content-block" style="margin-top: 30px;">
+      <div class="section-kicker">Сайт аяқталды</div>
+      <h3>Ильяс А. · Стратегиялық менеджмент</h3>
+
+      <p>
+        Бұл сайт Ильяс А. “Стратегический менеджмент: учебное пособие”.
+        Алматы: Издательство LEM, 2020. — 438 с. кітабы бойынша қысқа дайындалды.
+        Материал КТ-ның негізгі тақырыптарына сай маңызды фактілер арқылы жүйеленді.
+      </p>
+
+      <p>
+        Әр сұрақта 5 жауап нұсқасы бар және бір ғана дұрыс жауап таңдалады.
+        “Нәтижені көрсету” батырмасын басқаннан кейін дұрыс жауап жасыл түспен,
+        қате таңдалған жауап қызыл түспен көрсетіледі.
+      </p>
+
+      <p style="margin-bottom: 0; color: var(--muted);">
+        © @elnazm_ln
+      </p>
+    </footer>
+  </div>
+
+  <a class="floating-up" href="#top" aria-label="Жоғары көтерілу">↑</a>
+
+  <script>
+    function getSelectedAnswer(question) {
+      const selected = question.querySelector('input[type="radio"]:checked');
+      return selected ? selected.value.trim() : '';
+    }
+
+    function checkSection(testId) {
+      const testBox = document.querySelector(`[data-test="${testId}"]`);
+      const resultPanel = document.getElementById(`result-${testId}`);
+
+      if (!testBox || !resultPanel) return;
+
+      const questions = Array.from(testBox.querySelectorAll('.question'));
+      let correctCount = 0;
+
+      questions.forEach(question => {
+        const correctAnswer = (question.dataset.answer || '').trim();
+        const selectedAnswer = getSelectedAnswer(question);
+        const options = Array.from(question.querySelectorAll('.option'));
+
+        question.classList.add('checked');
+
+        options.forEach(option => {
+          option.classList.remove('correct', 'wrong');
+
+          const input = option.querySelector('input[type="radio"]');
+          if (!input) return;
+
+          const value = input.value.trim();
+
+          if (value === correctAnswer) {
+            option.classList.add('correct');
+          }
+
+          if (value === selectedAnswer && value !== correctAnswer) {
+            option.classList.add('wrong');
+          }
+        });
+
+        if (selectedAnswer === correctAnswer) {
+          correctCount++;
+        }
+      });
+
+      const total = questions.length;
+      const percent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+
+      const resultText = resultPanel.querySelector('.result-text');
+
+      if (resultText) {
+        resultText.textContent = `${correctCount} / ${total} дұрыс жауап · ${percent}%`;
+      }
+
+      resultPanel.classList.add('show');
+
+      resultPanel.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = Array.from(document.querySelectorAll('.test-box .btn-primary'));
+
+      buttons.forEach(button => {
+        const testBox = button.closest('.test-box');
+        if (!testBox) return;
+
+        const testId = testBox.dataset.test;
+        if (!testId) return;
+
+        button.addEventListener('click', () => {
+          checkSection(testId);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
